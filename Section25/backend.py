@@ -6,14 +6,14 @@ def connect():
     cur = conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title text, author text, year integer, isbn integer)")
     conn.commit()
-    con.close()
+    conn.close()
 
 def insert(title, author,year,isbn):
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
     cur.execute("INSERT INTO books VALUES (NULL, ?,?,?,?)" (title,author,year,isbn))
     conn.commit()
-    con.close()
+    conn.close()
 
 def view():
     conn = sqlite3.connect("books.db")
@@ -36,14 +36,14 @@ def delete(id):
     cur = conn.cursor()
     cur.execute("DELETE FROM book WHERE id=?",(id,))
     conn.commit()
-    con.close()
+    conn.close()
 
 def update(id,title, author, year):
     conn = sqlite3.connect("books.db")
     cur = conn.cursor()
     cur.execute("UPDATE book SET title=?m author=?, year=?, isbn=? WHERE id=?",(id, title,author,year,isbn))
     conn.commit()
-    con.close()
+    conn.close()
 
 
 connect()
