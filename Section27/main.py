@@ -5,10 +5,12 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 Builder.load_file('design.kv')
 
-# inherit from screen object
+# inherit from screen object, when you see this, that class will be able to use those object
 class LoginScreen(Screen):
     pass
 
+
+# inherit from ScreenManager object, when you see this, that class will be able to use those object
 class RootWidget(ScreenManager):
     pass
 
