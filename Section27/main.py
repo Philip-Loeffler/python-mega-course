@@ -16,9 +16,9 @@ class LoginScreen(Screen):
 
 # inherit from ScreenManager object, when you see this, that class will be able to use those object
 class RootWidget(ScreenManager):
-    pass
-
-class SignUpScreen(Screen):
+    def add_user(self)
+        pass
+class SignUpScreen(Screen, uname, pword):
     pass
 
 
