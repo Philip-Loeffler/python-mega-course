@@ -1,7 +1,8 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
-
+import json
+from datetime import datetime
 
 Builder.load_file('design.kv')
 
@@ -16,11 +17,21 @@ class LoginScreen(Screen):
 
 # inherit from ScreenManager object, when you see this, that class will be able to use those object
 class RootWidget(ScreenManager):
-    def add_user(self)
-        pass
-class SignUpScreen(Screen, uname, pword):
     pass
+class SignUpScreen(Screen):
+    def add_user(self, uname, pword):
+        with open("users.json") as file:
+            users = json.load(file)
+        print(users)
 
+        # when the new object is created in json there will be user1, user2, then 
+        # whatever is put into uname, will be the name of the third object. 
+        # so if we put in u1 it would look like
+        # user1: {}, user2: {}, u1: {}
+        users[uname] = {'username': uname, 'password': pword, 'created': datetime.now()}
+
+        with open("users.json", 'w') as file:
+            json.dump(users, file)
 
 class MainApp(App):
     #  this class takes in the App, which is an import from kivy
