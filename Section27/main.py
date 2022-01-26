@@ -20,7 +20,7 @@ class RootWidget(ScreenManager):
     pass
 class SignUpScreen(Screen):
     def add_user(self, uname, pword):
-        with open("users.json") as file:
+        with open("user.json") as file:
             users = json.load(file)
         print(users)
 
@@ -28,11 +28,14 @@ class SignUpScreen(Screen):
         # whatever is put into uname, will be the name of the third object. 
         # so if we put in u1 it would look like
         # user1: {}, user2: {}, u1: {}
-        users[uname] = {'username': uname, 'password': pword, 'created': datetime.now()}
+        users[uname] = {'username': uname, 'password': pword, 'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
 
-        with open("users.json", 'w') as file:
+        with open("user.json", 'w') as file:
             json.dump(users, file)
+        self.manager.current = "sign_up_screen_success"
 
+class SignUpScreenSuccess(Screen):
+    pass
 class MainApp(App):
     #  this class takes in the App, which is an import from kivy
     # then we can use the build object, which is a part of the import
