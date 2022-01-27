@@ -22,22 +22,22 @@ for item in all:
     print(item.find("h4",{"class", "propPrice"}).text.replace("\n", "").replace(" ", ""))
     # item.find_all("span",{"class", "propAddressCollapse"}[0].text)
     try:
-        item.find("span", {"class", "infoBed"}.find("b").text)
+        item.find("span", {"class", "infoBed"}).find("b").text
     except:
         # if you cant find the span tag, move on to the next iteration of the loop
         print(None)
     try:
-        item.find("span", {"class", "infoSqft"}.find("b").text)
+        item.find("span", {"class", "infoSqft"}).find("b").text
     except:
         # if you cant find the span tag, move on to the next iteration of the loop
         print(None)
     try:
-        item.find("span", {"class", "infoValueFullBath"}.find("b").text)
+        item.find("span", {"class", "infoValueFullBath"}).find("b").text
     except:
         # if you cant find the span tag, move on to the next iteration of the loop
         print(None)
     try:
-        item.find("span", {"class", "infoValueHalfBath"}.find("b").text)
+        item.find("span", {"class", "infoValueHalfBath"}).find("b").text
     except:
         # if you cant find the span tag, move on to the next iteration of the loop
         print(None)
